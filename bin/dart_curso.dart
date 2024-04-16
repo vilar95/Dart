@@ -28,10 +28,11 @@ void main() {
   Legumes macaxira = Legumes('Macaxeira', 1200, 'Marrom', true);
   Legumes cenoura = Legumes('Cenoura', 120, 'Laranja', true);
   Fruta abacate = Fruta('Abacate', 250, 'Verde', 'Doce', 10);
-  Fruta banana =Fruta('Banana', 75, 'Amarela', 'Doce', 12);
+  Fruta banana = Fruta('Banana', 75, 'Amarela', 'Doce', 12);
   Nozes macadamia = Nozes('Macadâmia', 2, 'Branca', 'Doce', 20, 35);
-  Nozes castanhaCaju = Nozes('Castanha de Caju', 4, 'Branco e Marrom', 'Doce', 15, 25);
-  Citricas limao =Citricas('Limão', 100, 'Verde', 'Azedo', 5, 9);
+  Nozes castanhaCaju =
+      Nozes('Castanha de Caju', 4, 'Branco e Marrom', 'Doce', 15, 25);
+  Citricas limao = Citricas('Limão', 100, 'Verde', 'Azedo', 5, 9);
   Citricas maracuja = Citricas('Maracujá', 120, 'Amarelo', 'Azedo', 6, 10);
 
   //Funções da super classe Alimento, todos filhos podem herdar;
@@ -93,12 +94,13 @@ class Alimento {
   }
 }
 
-class Fruta extends Alimento implements Bolo{
+class Fruta extends Alimento implements Bolo {
   String sabor;
   int diasDesdeColheita;
   bool? isMadura;
 
-  Fruta(String nome, double peso, String cor, this.sabor, this.diasDesdeColheita,
+  Fruta(
+      String nome, double peso, String cor, this.sabor, this.diasDesdeColheita,
       {this.isMadura})
       : super(nome, peso, cor);
 
@@ -112,24 +114,25 @@ class Fruta extends Alimento implements Bolo{
   void fazerSuco() {
     print('Você fez um ótimo suco de $nome.');
   }
-  
+
   @override
   void separarIgradiente() {
     print('Pegar a $nome.');
   }
-  
+
   @override
   void fazerMassa() {
-    print('Misturar a $nome com a Farinha, açucar, ovos, açucar, margarina, leite e fermento.');
+    print(
+        'Misturar a $nome com a Farinha, açucar, ovos, açucar, margarina, leite e fermento.');
   }
-  
+
   @override
   void assar() {
     print('Colocar no forno à 200ºC por 30 minutos.');
   }
 }
 
-class Legumes extends Alimento implements Bolo{
+class Legumes extends Alimento implements Bolo {
   bool isPrecisaCozinhar;
 
   Legumes(String nome, double peso, String cor, this.isPrecisaCozinhar)
@@ -142,17 +145,15 @@ class Legumes extends Alimento implements Bolo{
       print('Não precisa cozinhar.');
     }
   }
-  
+
   @override
-  void assar() {
-    
-  }
-  
+  void assar() {}
+
   @override
   void fazerMassa() {
     // TODO: implement fazerMassa
   }
-  
+
   @override
   void separarIgradiente() {
     // TODO: implement separarIgradiente
@@ -162,24 +163,25 @@ class Legumes extends Alimento implements Bolo{
 class Citricas extends Fruta {
   double nivelAzedo;
 
-  Citricas(
-    String nome, double peso, String cor, String sabor, int diasDesdeColheita, this.nivelAzedo) 
-      :super(nome, peso, cor, sabor, diasDesdeColheita);
+  Citricas(String nome, double peso, String cor, String sabor,
+      int diasDesdeColheita, this.nivelAzedo)
+      : super(nome, peso, cor, sabor, diasDesdeColheita);
 
-  void existeRefri(bool existe){
-    if(existe){
+  void existeRefri(bool existe) {
+    if (existe) {
       print('Existe refrigerante de $nome.');
-    } else{
+    } else {
       print('Não existe refrigerante de $nome.');
     }
   }
 }
 
-class Nozes extends Fruta{
+class Nozes extends Fruta {
   double porcentagemOleoNatural;
 
-  Nozes(String nome, double peso, String cor, String sabor, int diasDesdeColheita, this.porcentagemOleoNatural)
-    :super(nome, peso, cor, sabor, diasDesdeColheita);
+  Nozes(String nome, double peso, String cor, String sabor,
+      int diasDesdeColheita, this.porcentagemOleoNatural)
+      : super(nome, peso, cor, sabor, diasDesdeColheita);
 
   @override
   void fazerMassa() {
@@ -188,7 +190,7 @@ class Nozes extends Fruta{
   }
 }
 
-abstract class Bolo{
+abstract class Bolo {
   void separarIgradiente();
   void fazerMassa();
   void assar();
