@@ -1,4 +1,3 @@
-import 'package:dart_curso2/dart_curso2.dart' as dart_curso2;
 
 void main() {
   //escolherMeioTransporte(0);
