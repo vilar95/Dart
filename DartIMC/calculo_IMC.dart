@@ -5,7 +5,7 @@ void main() {
   print("Qual é o seu nome?");
   String? inputNome = stdin.readLineSync();
   if (inputNome == null) {
-     print("POwww, informa o nome seu viado!!!");
+     print("O nome não foi informado, reinicie a aplicação voltar a utiliza!");
      exit(0);
   }
   print("Qual é a sua idade?");
