@@ -13,7 +13,7 @@ void main() {
     print('I have a function in the Future!');
     await Future.delayed(Duration(seconds: 5));
     throw Exception();
-    return 12;
+    //return 12;
   }
   // Após 5 seg realiza a quinta ação
   // myFutureFunc()
