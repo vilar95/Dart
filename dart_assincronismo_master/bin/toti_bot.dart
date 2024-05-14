@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'questions/good_manners.dart';
+//import 'questions/math_questions.dart';
+import 'questions/philosophy_questions.dart';
 import 'questions/time_questions.dart';
 import 'timing/waiting_time.dart';
 
@@ -9,7 +11,7 @@ void main() async {
   var a = true;
   String usuario = '';
 
-  var myStream = BotClock().totiBotStream(1, 10);
+  var myStream = BotClock().totiBotStream(1, 20);
   myStream.listen(
     (event) {
       print('                                 Totibot está ativo a $event segundos');
@@ -33,17 +35,22 @@ void main() async {
         usuario.contains('adeus')) {
       a = false;
       print(totiBot + ' Até a proxima!!');
+    } else if (PhilosophyQuestions(usuario).isThisPhilosophyQuestions(usuario)){
+      PhilosophyQuestions(usuario).philoQuestions();
+    } else if (GoodManners(usuario).isThisManners(usuario)) {
+      GoodManners(usuario).goodManners();
     } else if (TimeQuestions(usuario).isThisTime()) {
       await BotClock().clock(2);
       // verificar antes, assim não fazemos toda a função sem precisar.
       TimeQuestions(usuario).timeQuestion();
-    } else if (GoodManners(usuario).isThisManners(usuario)) {
-      GoodManners(usuario).goodManners();
     }
+    // } else if (MathQuestions(usuario).isThisMathQuestion) {
+    //   MathQuestions(usuario).mathQuestions();
+    //}
      else {
       await BotClock().clock(2);
       print(totiBot +
-          ' Não fui treinado para responder a essa pergunta \n Desculpe :( ');
+          ' Não fui treinado para responder a essa pergunta \n Desculpe :( ou você não está escrevendo da forma correta.');
       print(totiBot + ' Você pode fazer outra pergunta ou dizer Adeus');
     }
   } while (a);

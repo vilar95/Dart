@@ -3,8 +3,8 @@ import 'dart:io';
 //implementar o Timing!
 
 class TimeQuestions {
-  String hour = 'Que horas sao?';
-  String day = 'Que dia e hoje?';
+  String hour = 'Que horas são?';
+  String day = 'Que dia é hoje?';
   String year = 'Em que ano estamos?';
   String question;
   DateTime date = DateTime.now();
@@ -29,13 +29,13 @@ class TimeQuestions {
   timeQuestion() {
     if (question == hour) {
       String _botAnswer =
-          totiBot + ' Opa! são : ${date.hour} horas e ${date.minute} minutos!';
+          totiBot + ' Certo! são : ${date.hour} horas e ${date.minute} minutos!';
       print(_botAnswer);
     } else if (question == day) {
-      String _botAnswer = totiBot + ' Opa! hoje é dia : ${date.day}';
+      String _botAnswer = totiBot + ' Certo! hoje é dia : ${date.day}';
       print(_botAnswer);
     } else if (question == year) {
-      String _botAnswer = totiBot + ' Opa! estamos em : ${date.year}';
+      String _botAnswer = totiBot + ' Certo! estamos em : ${date.year}';
       print(_botAnswer);
     } else {
       unsure();
@@ -74,9 +74,10 @@ class TimeQuestions {
       print(_botQuestion);
       String answer = stdin.readLineSync().toString();
       if (answer.contains('Sim') || answer.contains('sim')) {
-        String _botAnswer = totiBot +
-            ' Beleza, estamos no ano de 2077, a pandemia já está terminando... \n '
-                'Brincadeirinha! estamos em : ${date.year}';
+        String _botAnswer = totiBot + 
+            'Caro cidadão, a tua pergunta sobre o ano em que estamos é complexa. O tempo é um rio em mutação, e só tu podes decidir em qual margem te banhar. Vive cada dia como se fosse o único, e cria o ano que tu desejas!'
+            '  \n '
+            'Brincadeiras a parte! estamos em : ${date.year}';
         print(_botAnswer);
       } else {
         String _botAnswer = totiBot + ' Ah, foi mal... entendi errado.';
